@@ -1,19 +1,43 @@
+
+/* ================================
+   🌸 PINK AESTHETIC CHAT APP
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --pink: #e879ad;
+    --dark-pink: #d94f91;
+    --light-pink: #ffe4f0;
+    --lavender: #e9ddff;
+    --white: #ffffff;
+    --text: #57364b;
+    --shadow: 0 15px 45px rgba(190, 91, 145, 0.18);
 }
 
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #101827, #263b59);
+    background: linear-gradient(
+        135deg,
+        #ffe1ef,
+        #f4e5ff,
+        #fff0f6
+    );
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Login */
+/* ================================
+   💗 LOGIN SECTION
+================================ */
 
 .login-container {
     width: 100%;
@@ -23,79 +47,127 @@ body {
 }
 
 .login-box {
-    background: white;
-    padding: 40px 30px;
-    border-radius: 18px;
-    width: 350px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(15px);
+    padding: 45px 32px;
+    border-radius: 25px;
+    width: 370px;
     text-align: center;
-    box-shadow: 0 10px 40px #0005;
+    box-shadow: var(--shadow);
+    border: 1px solid #ffffff;
+    animation: fadeIn 0.7s ease;
 }
 
 .login-box h1 {
-    color: #263b59;
+    color: var(--dark-pink);
     margin-bottom: 10px;
+    font-size: 29px;
+    font-weight: 800;
 }
 
 .login-box p {
-    color: #777;
-    margin-bottom: 25px;
+    color: #a17a91;
+    margin-bottom: 28px;
+    font-size: 14px;
 }
+
+/* INPUT FIELDS */
 
 input {
     width: 100%;
-    padding: 14px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 9px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border: 1.5px solid #f4c5dc;
+    border-radius: 12px;
     outline: none;
-    font-size: 15px;
+    font-size: 14px;
+    color: var(--text);
+    background: #fff8fc;
+    transition: 0.3s ease;
+}
+
+input::placeholder {
+    color: #c49bb2;
 }
 
 input:focus {
-    border-color: #526ff0;
+    border-color: var(--pink);
+    box-shadow: 0 0 0 4px #fce0ed;
+    background: white;
 }
+
+/* BUTTONS */
 
 button {
     border: none;
-    background: #526ff0;
+    background: linear-gradient(
+        135deg,
+        #ed8cba,
+        #d94f91
+    );
     color: white;
     padding: 13px 20px;
-    border-radius: 9px;
+    border-radius: 12px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px #e879ad55;
 }
 
 button:hover {
-    background: #4059d4;
+    transform: translateY(-3px);
+    box-shadow: 0 9px 22px #d94f9166;
+    background: linear-gradient(
+        135deg,
+        #d94f91,
+        #bd3478
+    );
+}
+
+button:active {
+    transform: scale(0.97);
 }
 
 .login-box button {
     width: 100%;
+    margin-top: 5px;
 }
 
 #error {
-    color: red;
+    color: #e04476;
     margin-top: 15px;
+    font-size: 13px;
 }
 
-/* Chat */
+/* ================================
+   💬 CHAT SECTION
+================================ */
 
 .chat-container {
     display: none;
     width: 95%;
-    max-width: 750px;
+    max-width: 780px;
     height: 85vh;
     background: white;
-    border-radius: 18px;
+    border-radius: 24px;
     overflow: hidden;
     flex-direction: column;
-    box-shadow: 0 10px 40px #0005;
+    box-shadow: 0 20px 60px #d477a344;
+    border: 1px solid #ffffff;
 }
 
+/* CHAT HEADER */
+
 .chat-header {
-    background: #263b59;
+    background: linear-gradient(
+        120deg,
+        #e879ad,
+        #c85b9c,
+        #aa76cb
+    );
     color: white;
-    padding: 20px;
+    padding: 21px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -103,76 +175,174 @@ button:hover {
 
 .chat-header h2 {
     font-size: 21px;
+    font-weight: 700;
 }
 
 .chat-header span {
     font-size: 12px;
-    color: #cbd5e1;
+    color: #ffe5f2;
 }
 
+/* LOGOUT BUTTON */
+
 .logout {
-    background: #e74c3c;
+    background: #ffffff;
+    color: #d94f91;
+    box-shadow: none;
+    padding: 9px 16px;
 }
+
+.logout:hover {
+    background: #ffe5f1;
+    color: #bd3478;
+}
+
+/* MESSAGE AREA */
 
 .messages {
     flex: 1;
     overflow-y: auto;
-    padding: 20px;
-    background: #f2f5fa;
+    padding: 22px;
+    background: linear-gradient(
+        135deg,
+        #fff8fc,
+        #f9f1ff
+    );
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
 }
+
+/* CUSTOM SCROLLBAR */
+
+.messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background: #e8a3c5;
+    border-radius: 10px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background: #fff0f6;
+}
+
+/* MESSAGE BUBBLES */
 
 .message {
     max-width: 75%;
-    padding: 12px 15px;
-    border-radius: 13px;
+    padding: 13px 17px;
+    border-radius: 17px;
     overflow-wrap: anywhere;
+    font-size: 14px;
+    line-height: 1.6;
+    animation: fadeIn 0.3s ease;
 }
 
 .sent {
-    background: #526ff0;
+    background: linear-gradient(
+        135deg,
+        #ed8cba,
+        #d85b9b
+    );
     color: white;
     align-self: flex-end;
-    border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 4px 12px #e879ad33;
 }
 
 .received {
     background: white;
-    color: #222;
+    color: #57364b;
     align-self: flex-start;
-    border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 4px 15px #c58aa51c;
+    border: 1px solid #fce5f0;
 }
 
 .message small {
     display: block;
-    margin-top: 6px;
+    margin-top: 7px;
     font-size: 10px;
-    opacity: .7;
+    opacity: 0.75;
 }
+
+/* MESSAGE INPUT */
 
 .message-input {
     display: flex;
-    padding: 15px;
-    gap: 10px;
+    padding: 17px;
+    gap: 12px;
     background: white;
+    border-top: 1px solid #f9e3ee;
 }
 
 .message-input input {
     margin: 0;
     flex: 1;
+    background: #fff6fa;
 }
 
+.message-input button {
+    min-width: 90px;
+}
+
+/* ================================
+   ✨ ANIMATIONS
+================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================
+   📱 RESPONSIVE DESIGN
+================================ */
+
 @media(max-width: 500px) {
+    body {
+        padding: 0;
+    }
+
+    .login-box {
+        width: 100%;
+        padding: 35px 25px;
+    }
+
     .chat-container {
         width: 100%;
         height: 100vh;
+        height: 100dvh;
         border-radius: 0;
+    }
+
+    .chat-header {
+        padding: 17px;
+    }
+
+    .chat-header h2 {
+        font-size: 18px;
     }
 
     .message {
         max-width: 85%;
+    }
+
+    .messages {
+        padding: 15px;
+    }
+
+    .message-input {
+        padding: 12px;
     }
 }
 
